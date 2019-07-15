@@ -51,7 +51,7 @@ function create_run_script {
         s/{port}/$P2P/g
         s/{ws_port}/$WS/g
         s/{rpc_port}/$RPC/g  
-    " ./_run.sh > $OUTPUT_FILE
+    " ./_run.sh >> $OUTPUT_FILE
     chmod +x $OUTPUT_FILE
 }
 
@@ -79,6 +79,7 @@ do
     echo "cd ../" >> output/run_all.sh
     
     echo "# Run all the nodes in the same host" > $NODE_DIR/run_all.sh
+    cp docker-compose.yml $NODE_DIR/docker-compose.yml
     chmod +x $NODE_DIR/run_all.sh
     for node_type in ${node_types[@]}
     do
@@ -92,7 +93,7 @@ do
         
         update_node_list $HOSTNAME $P2P "./tmp/$node_type/scripts/static-nodes.json" $i
         
-        create_run_script $node_type $P2P $WS $RPC "./$NODE_DIR/run_"$node_type".sh"
+        create_run_script $node_type $P2P $WS $RPC "./$NODE_DIR/docker-compose.yml"
 
         $KLAYTN --datadir /$NODE_DIR/$node_type init /tmp/$node_type/scripts/genesis.json
         cp ./tmp/$node_type/keys/nodekey$i $NODE_DIR/$node_type/klay/nodekey
