@@ -10,7 +10,7 @@ const range = (n) => [...Array(n)].map((_, i) => i);
 
 const nodeTypes = ['cn', 'bn', 'rn'];
 
-const NODE_COUNT = 2;
+const NODE_COUNT = 4;
 const REGISTRY = "asia.gcr.io/deep-rainfall-236010";
 const ISTANBUL = `docker run --rm -v ${pwd}/tmp:/tmp ${REGISTRY}/klaytn /istanbul`;
 const KLAYTN = `docker run --rm -v ${pwd}/tmp:/tmp -v ${pwd}/output:/output ${REGISTRY}/klaytn /klay`;
