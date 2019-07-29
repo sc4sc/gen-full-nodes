@@ -1,0 +1,8 @@
+version: "3"
+networks:
+  default:
+    ipam:
+      driver: default
+      config:
+        - subnet: {subnet}/16
+services:

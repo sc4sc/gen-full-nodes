@@ -1,0 +1,11 @@
+{
+  "name": "gen-full-nodes",
+  "version": "1.0.0",
+  "main": "setup.js",
+  "repository": "https://github.com/sc4sc/gen-full-nodes.git",
+  "author": "Yejun Kim <no1expman@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "shelljs": "^0.8.3"
+  }
+}
