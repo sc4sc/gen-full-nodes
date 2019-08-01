@@ -8,9 +8,10 @@ const { execSync } = require("child_process");
 const pwd = process.cwd();
 const range = n => [...Array(n)].map((_, i) => i);
 
+const nodeConfigs = require("./nodeConfigs");
 const nodeTypes = ["cn", "bn", "rn"];
 
-const NODE_COUNT = 4;
+const NODE_COUNT = nodeConfigs.length;
 const REGISTRY = "asia.gcr.io/deep-rainfall-236010";
 const ISTANBUL = `docker run --rm -v ${pwd}/tmp:/tmp ${REGISTRY}/klaytn /istanbul`;
 const KLAYTN = `docker run --rm -v ${pwd}/tmp:/tmp -v ${pwd}/output:/output ${REGISTRY}/klaytn /klay`;
@@ -25,7 +26,6 @@ nodeTypes.forEach(nodeType => {
   console.log(output);
 });
 
-const nodeConfigs = require("./nodeConfigs");
 
 shell.echo("Edit static-nodes");
 nodeTypes.forEach(nodeType => {
